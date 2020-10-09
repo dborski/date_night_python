@@ -10,3 +10,4 @@ class BinarySearchTreeTest(unittest.TestCase):
 
   def test_head_is_none_by_default(self):
     self.assertEqual(self.tree.head, None)
+    

@@ -4,3 +4,4 @@ class Node:
     self.movie_title = movie_title
     self.next_left = None
     self.next_right = None
+    

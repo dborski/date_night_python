@@ -17,3 +17,4 @@ class NodeTest(unittest.TestCase):
 
   def test_next_right_is_none_by_default(self):
     self.assertEqual(self.node.next_right, None)
+    
