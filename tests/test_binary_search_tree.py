@@ -16,3 +16,6 @@ class BinarySearchTreeTest(unittest.TestCase):
     self.assertEqual(self.tree.insert(16, "Johnny English"), 1)
     self.assertEqual(self.tree.insert(92, "Sharknado 3"), 1)
     self.assertEqual(self.tree.insert(50, "Hannibal Buress: Animal Furnace"), 2)
+    self.assertEqual(self.tree.insert(60, "Die Hard"), 3)
+    self.assertEqual(self.tree.insert(14, "Hot Tub Time Machine"), 2)
+    self.assertEqual(self.tree.insert(19, "Catwoman"), 3)
