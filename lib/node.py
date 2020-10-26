@@ -9,7 +9,6 @@ class Node:
   def insert(self, movie_score, movie_title):
     if self.movie_score > movie_score:
       return self.insert_left(movie_score, movie_title)
-
     elif self.movie_score < movie_score:
       return self.insert_right(movie_score, movie_title)
     else:
