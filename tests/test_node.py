@@ -12,9 +12,8 @@ class NodeTest(unittest.TestCase):
     self.assertEqual(self.node.movie_score, 60)
     self.assertEqual(self.node.movie_title, "Hot Tub Time Machine")
   
-  def test_next_left_is_none_by_default(self):
-    self.assertEqual(self.node.next_left, None)
+  def test_left_is_none_by_default(self):
+    self.assertEqual(self.node.left, None)
 
-  def test_next_right_is_none_by_default(self):
-    self.assertEqual(self.node.next_right, None)
-    
+  def test_right_is_none_by_default(self):
+    self.assertEqual(self.node.right, None)
