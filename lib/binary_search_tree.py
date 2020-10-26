@@ -23,7 +23,4 @@ class BinarySearchTree:
       elif current_node.depth > 0 and current_node.left == None and current_node.right == None:
         return False
       else:
-        if movie_score > current_node.movie_score:
-          return self.has_score(movie_score, current_node.right)
-        else:
-          return self.has_score(movie_score, current_node.left)
+        return self.has_score(movie_score, current_node.right if movie_score > current_node.movie_score else current_node.left)

@@ -21,6 +21,8 @@ class BinarySearchTreeTest(unittest.TestCase):
     self.assertEqual(self.tree.insert(19, "Catwoman"), 3)
 
   def test_has_score(self):
+    self.assertEqual(self.tree.has_score(3), False)
+
     self.tree.insert(61, "Bill & Ted's Excellent Adventure"), 0
     self.tree.insert(16, "Johnny English"), 1
     self.tree.insert(92, "Sharknado 3"), 1
@@ -33,5 +35,4 @@ class BinarySearchTreeTest(unittest.TestCase):
     self.assertEqual(self.tree.has_score(16), True)
     self.assertEqual(self.tree.has_score(19), True)
     self.assertEqual(self.tree.has_score(72), False)
-    self.assertEqual(self.tree.has_score(61), False)
     self.assertEqual(self.tree.has_score(15), False)
