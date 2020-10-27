@@ -20,32 +20,28 @@ class BinarySearchTree:
     return self.score_depth_helper(movie_score, False, True, current_node)
 
   def depth_of(self, movie_score, current_node=None):
-      return self.score_depth_helper(movie_score, None, False, current_node)
+    return self.score_depth_helper(movie_score, None, False, current_node)
   
   def max(self, current_node=None):
-    if current_node is None:
-      current_node = self.head
-
-    if current_node is None:
-      return None
-    else:
-      if current_node.right:
-        return self.max(current_node.right)
-      else:
-        return _movie_payload(current_node)
+    return self.max_min_helper("right", current_node)
       
   def min(self, current_node=None):
+    return self.max_min_helper("left", current_node)
+
+  def max_min_helper(self, direction, current_node=None):
     if current_node is None:
       current_node = self.head
 
     if current_node is None:
       return None
     else:
-      if current_node.left:
-        return self.min(current_node.left)
+      if direction == 'left' and current_node.left:
+        return self.max_min_helper(direction, current_node.left)
+      elif direction == 'right' and current_node.right:
+        return self.max_min_helper(direction, current_node.right)
       else:
         return _movie_payload(current_node)
-      
+  
   def score_depth_helper(self, movie_score, first_return, second_return, current_node=None):
     if current_node is None:
       current_node = self.head
