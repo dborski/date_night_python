@@ -52,3 +52,33 @@ class BinarySearchTreeTest(unittest.TestCase):
     self.assertEqual(self.tree.depth_of(14), 2)
     self.assertEqual(self.tree.depth_of(13), None)
     self.assertEqual(self.tree.depth_of(87), None)
+
+  def test_max_score(self):
+    self.tree.insert(61, "Bill & Ted's Excellent Adventure")
+    self.tree.insert(16, "Johnny English")
+    self.tree.insert(92, "Sharknado 3")
+    self.tree.insert(50, "Hannibal Buress: Animal Furnace")
+    self.tree.insert(60, "Die Hard")
+    self.tree.insert(14, "Hot Tub Time Machine")
+    self.tree.insert(19, "Catwoman")
+
+    expected = {
+      "Sharknado 3": 92
+    }
+
+    self.assertEqual(self.tree.max(), expected)
+
+  def test_min_score(self):
+    self.tree.insert(61, "Bill & Ted's Excellent Adventure")
+    self.tree.insert(16, "Johnny English")
+    self.tree.insert(92, "Sharknado 3")
+    self.tree.insert(50, "Hannibal Buress: Animal Furnace")
+    self.tree.insert(60, "Die Hard")
+    self.tree.insert(14, "Hot Tub Time Machine")
+    self.tree.insert(19, "Catwoman")
+
+    expected = {
+      "Hot Tub Time Machine": 14
+    }
+
+    self.assertEqual(self.tree.min(), expected)
