@@ -34,6 +34,18 @@ class BinarySearchTree:
       else:
         return _movie_payload(current_node)
       
+  def min(self, current_node=None):
+    if current_node is None:
+      current_node = self.head
+
+    if current_node is None:
+      return None
+    else:
+      if current_node.left:
+        return self.min(current_node.left)
+      else:
+        return _movie_payload(current_node)
+      
   def score_depth_helper(self, movie_score, first_return, second_return, current_node=None):
     if current_node is None:
       current_node = self.head
