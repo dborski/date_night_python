@@ -101,3 +101,14 @@ class BinarySearchTreeTest(unittest.TestCase):
     ]
 
     self.assertEqual(self.tree.sort(), expected)
+
+  def test_load(self):
+    expected = [
+        {'Meet My Valentine': 17},
+        {'Experimenter': 55},
+        {'French Dirty': 75},
+        {'Airforce One': 99}
+    ]
+    
+    self.assertEqual(self.tree.load("./source/movies_truncated.txt"), 4)
+    self.assertEqual(self.tree.sort(), expected)

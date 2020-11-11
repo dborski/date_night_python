@@ -27,6 +27,21 @@ class BinarySearchTree:
       
   def min(self, current_node=None):
     return self.max_min_helper("left", current_node)
+  
+  def load(self, text_file):
+    movies = open(text_file, 'r').readlines()
+
+    counter = 0
+
+    for movie in movies:
+      split = movie.split(", ")
+      insert_return = self.insert(int(split[0]), split[1].rstrip())
+      if insert_return != "That movie score has already been used. Please submit another one":
+        counter += 1
+      else:
+        None
+    
+    return counter
 
   def sort(self, current_node=None):
     if current_node is None:
