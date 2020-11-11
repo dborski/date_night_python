@@ -101,3 +101,8 @@ class BinarySearchTreeTest(unittest.TestCase):
     ]
 
     self.assertEqual(self.tree.sort(), expected)
+
+  def test_load(self):
+    movie_list = open("./source/movies.txt", 'r').readlines()
+    
+    self.assertEqual(self.tree.load("./source/movies.txt"), 99)
