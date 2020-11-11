@@ -86,14 +86,18 @@ class BinarySearchTreeTest(unittest.TestCase):
   def test_sort(self):
     self.tree.insert(61, "Bill & Ted's Excellent Adventure")
     self.tree.insert(16, "Johnny English")
+    self.tree.insert(97, "Shrek")
     self.tree.insert(92, "Sharknado 3")
-    self.tree.insert(50, "Hannibal Buress: Animal Furnace")
+    self.tree.insert(50, "Hannibal Buress: Animal Furnace") 
+    self.tree.insert(15, "Die Hard") 
 
     expected = [
+      {"Die Hard": 15},
       {"Johnny English": 16},
       {"Hannibal Buress: Animal Furnace": 50},
       {"Bill & Ted's Excellent Adventure": 61},
-      {"Sharknado 3": 92}
+      {"Sharknado 3": 92},
+      {"Shrek": 97}
     ]
 
     self.assertEqual(self.tree.sort(), expected)
