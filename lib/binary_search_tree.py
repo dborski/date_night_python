@@ -36,10 +36,10 @@ class BinarySearchTree:
 
     def recur(node):
         if not node:
-            return
+          return
 
         recur(node.left)
-        result.append({node.movie_title: node.movie_score})
+        result.append(_movie_payload(node))
         recur(node.right)
 
     recur(current_node)
