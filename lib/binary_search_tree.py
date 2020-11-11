@@ -28,7 +28,7 @@ class BinarySearchTree:
   def min(self, current_node=None):
     return self.max_min_helper("left", current_node)
 
-  def sort(self, current_node=None, level=0):
+  def sort(self, current_node=None):
     if current_node is None:
       current_node = self.head
 
