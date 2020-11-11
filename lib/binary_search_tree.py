@@ -35,12 +35,12 @@ class BinarySearchTree:
     result = []
 
     def recur(node):
-        if not node:
-          return
+      if not node:
+        return
 
-        recur(node.left)
-        result.append(_movie_payload(node))
-        recur(node.right)
+      recur(node.left)
+      result.append(_movie_payload(node))
+      recur(node.right)
 
     recur(current_node)
     return result
