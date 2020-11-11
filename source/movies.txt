@@ -12,11 +12,13 @@
 79, A Picture of You
 98, Animals United
 58, Armageddon
+58, Rocky III
 36, Bill & Ted's Bogus Journey
 93, Bill & Ted's Excellent Adventure
 86, Charlie's Angels
 38, Charlie's Country
 69, Collateral Damage
+69, The Mighty Ducks
 52, Crossroads
 0, Cruel Intentions
 2, Full Metal Jacket
