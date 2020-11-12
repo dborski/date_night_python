@@ -1,4 +1,5 @@
 from lib.node import Node
+import math
 
 def _movie_payload(node):
   return {
@@ -23,30 +24,57 @@ class BinarySearchTree:
     return self.score_depth_helper(movie_score, None, False, current_node)
   
   def max(self, current_node=None):
-    return self.max_min_helper("right", current_node)
+    return self.max_min_helper('max', current_node)
       
   def min(self, current_node=None):
-    return self.max_min_helper("left", current_node)
+    return self.max_min_helper('min', current_node)
   
   def load(self, text_file):
-    movies = open(text_file, 'r').readlines()
-
+    movies = open(text_file, 'r')
+    split_movies = movies.readlines()
     counter = 0
 
-    for movie in movies:
-      split = movie.split(", ")
-      insert_return = self.insert(int(split[0]), split[1].rstrip())
-      if insert_return != "That movie score has already been used. Please submit another one":
+    for movie in split_movies:
+      score, title = movie.split(", ", 1)
+      insert_return = self.insert(int(score), title.rstrip())
+      if isinstance(insert_return, int):
         counter += 1
-      else:
-        None
-    
+
+    movies.close()
     return counter
+  
+  def health(self, depth):
+    total_nodes = 0
+    node_counts = []
+    payload = []
 
-  def sort(self, current_node=None):
-    if current_node is None:
-      current_node = self.head
+    def recur(node, saved_score=None):
+      nonlocal total_nodes
 
+      if not node:
+        return
+
+      node_counts.append({node.movie_score: 0}) if node.depth == depth else None
+      saved_score = node.movie_score if node.depth == depth else saved_score
+      total_nodes += 1
+
+      for res in node_counts:
+        if saved_score in res:
+          res[saved_score] += 1 if node.depth >= depth else None
+
+      recur(node.left, saved_score)
+      recur(node.right, saved_score)
+
+    recur(self.head)
+
+    for node in node_counts:
+      for score, value in node.items():
+        percentage = math.floor((float(value) / float(total_nodes)) * 100)
+      payload.append([[score, node[score], percentage] for score in node][0])
+
+    return payload
+
+  def sort(self):
     result = []
 
     def recur(node):
@@ -57,20 +85,20 @@ class BinarySearchTree:
       result.append(_movie_payload(node))
       recur(node.right)
 
-    recur(current_node)
+    recur(self.head)
     return result
 
-  def max_min_helper(self, direction, current_node=None):
+  def max_min_helper(self, max_min, current_node=None):
     if current_node is None:
       current_node = self.head
 
     if current_node is None:
       return None
     else:
-      if direction == 'left' and current_node.left:
-        return self.max_min_helper(direction, current_node.left)
-      elif direction == 'right' and current_node.right:
-        return self.max_min_helper(direction, current_node.right)
+      if max_min == 'min' and current_node.left:
+        return self.max_min_helper(max_min, current_node.left)
+      elif max_min == 'max' and current_node.right:
+        return self.max_min_helper(max_min, current_node.right)
       else:
         return _movie_payload(current_node)
   

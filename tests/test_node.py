@@ -26,7 +26,6 @@ class NodeTest(unittest.TestCase):
     self.node.insert(50, "Die Hard")
 
     self.assertEqual(self.node.left.left.movie_score, 50)
-
     self.assertEqual(self.node.insert(50, "Jingle Bells"), "That movie score has already been used. Please submit another one")
 
   def test_insert_right(self):
@@ -37,6 +36,5 @@ class NodeTest(unittest.TestCase):
     self.node.insert(70, "Die Hard")
 
     self.assertEqual(self.node.right.right.movie_score, 70)
-
     self.assertEqual(self.node.insert(60, "Jingle Bells"), "That movie score has already been used. Please submit another one"
     )

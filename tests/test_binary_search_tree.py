@@ -105,10 +105,29 @@ class BinarySearchTreeTest(unittest.TestCase):
   def test_load(self):
     expected = [
         {'Meet My Valentine': 17},
+        {'A Place on Earth 20, All That Glitters': 39},
         {'Experimenter': 55},
         {'French Dirty': 75},
         {'Airforce One': 99}
     ]
     
-    self.assertEqual(self.tree.load("./source/movies_truncated.txt"), 4)
+    self.assertEqual(self.tree.load("./source/movies_truncated.txt"), 5)
     self.assertEqual(self.tree.sort(), expected)
+
+  def test_health(self):
+    self.tree.insert(61, "Bill & Ted's Excellent Adventure")
+    self.tree.insert(16, "Johnny English")
+    self.tree.insert(92, "Sharknado 3"), 1
+    self.tree.insert(50, "Hannibal Buress: Animal Furnace")
+    self.tree.insert(98, "Animals United")
+    self.tree.insert(58, "Armageddon")
+    self.tree.insert(36, "Bill & Ted's Bogus Journey")
+    self.tree.insert(93, "Bill & Ted's Excellent Adventure")
+    self.tree.insert(86, "Charlie's Angels")
+    self.tree.insert(38, "Charlie's Country")
+    self.tree.insert(69, "Collateral Damage")
+
+    self.assertEqual(self.tree.health(0), [[61, 11, 100]])
+    self.assertEqual(self.tree.health(1), [[16, 5, 45], [92, 5, 45]])
+    self.assertEqual(self.tree.health(2), [[50, 4, 36], [86, 2, 18], [98, 2, 18]])
+    self.assertEqual(self.tree.health(3), [[36, 2, 18], [58, 1, 9], [69, 1, 9], [93, 1, 9]])
