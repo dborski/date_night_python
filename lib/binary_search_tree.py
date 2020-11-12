@@ -41,7 +41,6 @@ class BinarySearchTree:
         counter += 1
 
     movies.close()
-    import code; code.interact(local=dict(globals(), **locals()))
     return counter
   
   def health(self, depth):
