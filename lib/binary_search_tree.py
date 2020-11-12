@@ -29,6 +29,23 @@ class BinarySearchTree:
   def min(self, current_node=None):
     return self.max_min_helper('min', current_node)
   
+  def leaves(self):
+    leaf_nodes = 0
+
+    def recur(node):
+      nonlocal leaf_nodes
+      if not node:
+        return 
+      
+      if not node.left and not node.right:
+        leaf_nodes += 1
+      
+      recur(node.left)
+      recur(node.right)
+    
+    recur(self.head)
+    return leaf_nodes
+  
   def load(self, text_file):
     movies = open(text_file, 'r')
     split_movies = movies.readlines()
@@ -45,32 +62,31 @@ class BinarySearchTree:
   
   def health(self, depth):
     total_nodes = 0
-    node_counts = []
+    node_counts = {}
     payload = []
 
     def recur(node, saved_score=None):
       nonlocal total_nodes
-
       if not node:
         return
 
-      node_counts.append({node.movie_score: 0}) if node.depth == depth else None
       saved_score = node.movie_score if node.depth == depth else saved_score
       total_nodes += 1
 
-      for res in node_counts:
-        if saved_score in res:
-          res[saved_score] += 1 if node.depth >= depth else None
+      if node.depth == depth:
+        node_counts[saved_score] = 0
+
+      if saved_score in node_counts:
+        node_counts[saved_score] += 1
 
       recur(node.left, saved_score)
       recur(node.right, saved_score)
 
     recur(self.head)
 
-    for node in node_counts:
-      for score, value in node.items():
-        percentage = math.floor((float(value) / float(total_nodes)) * 100)
-      payload.append([[score, node[score], percentage] for score in node][0])
+    for score, value in node_counts.items():
+      percentage = math.floor((float(value) / float(total_nodes)) * 100)
+      payload.append([score, node_counts[score], percentage])
 
     return payload
 
