@@ -35,12 +35,13 @@ class BinarySearchTree:
     counter = 0
 
     for movie in split_movies:
-      score, title = movie.split(", ")
+      score, title = movie.split(", ", 1)
       insert_return = self.insert(int(score), title.rstrip())
       if isinstance(insert_return, int):
         counter += 1
 
     movies.close()
+    import code; code.interact(local=dict(globals(), **locals()))
     return counter
   
   def health(self, depth):
