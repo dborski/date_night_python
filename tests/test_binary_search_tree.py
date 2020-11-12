@@ -144,6 +144,7 @@ class BinarySearchTreeTest(unittest.TestCase):
     self.tree.insert(86, "Charlie's Angels")
     self.tree.insert(38, "Charlie's Country")
     self.tree.insert(69, "Collateral Damage")
+    self.tree.insert(35, "Snowpiercer")
 
-    self.assertEqual(self.tree.leaves(), 4)
+    self.assertEqual(self.tree.leaves(), 5)
 
