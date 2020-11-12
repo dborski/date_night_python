@@ -29,22 +29,30 @@ class BinarySearchTree:
   def min(self, current_node=None):
     return self.max_min_helper('min', current_node)
   
+  def height(self):
+    return self.leaves()[1]
+  
   def leaves(self):
     leaf_nodes = 0
+    max_height = 0
 
     def recur(node):
       nonlocal leaf_nodes
+      nonlocal max_height
       if not node:
         return 
       
       if not node.left and not node.right:
         leaf_nodes += 1
       
+      if node.depth > max_height:
+        max_height = node.depth
+      
       recur(node.left)
       recur(node.right)
     
     recur(self.head)
-    return leaf_nodes
+    return leaf_nodes, max_height
   
   def load(self, text_file):
     movies = open(text_file, 'r')
