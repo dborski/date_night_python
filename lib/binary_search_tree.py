@@ -51,6 +51,7 @@ class BinarySearchTree:
 
     def recur(node, saved_score=None):
       nonlocal total_nodes
+      
       if not node:
         return
 
