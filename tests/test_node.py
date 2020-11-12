@@ -17,6 +17,9 @@ class NodeTest(unittest.TestCase):
 
   def test_right_is_none_by_default(self):
     self.assertEqual(self.node.right, None)
+  
+  def test_depth_is_none_by_default(self):
+    self.assertEqual(self.node.depth, 0)
 
   def test_insert_left(self):
     self.node.insert(56, "Bill & Ted's Excellent Adventure")
