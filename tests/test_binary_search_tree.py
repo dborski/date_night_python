@@ -146,5 +146,21 @@ class BinarySearchTreeTest(unittest.TestCase):
     self.tree.insert(69, "Collateral Damage")
     self.tree.insert(35, "Snowpiercer")
 
-    self.assertEqual(self.tree.leaves(), 5)
+    self.assertEqual(self.tree.leaves()[0], 5)
+
+  def test_height(self):
+    self.tree.insert(61, "Bill & Ted's Excellent Adventure")
+    self.tree.insert(16, "Johnny English")
+    self.tree.insert(92, "Sharknado 3")
+    self.tree.insert(50, "Hannibal Buress: Animal Furnace")
+    self.tree.insert(98, "Animals United")
+    self.tree.insert(58, "Armageddon")
+    self.tree.insert(36, "Bill & Ted's Bogus Journey")
+    self.tree.insert(93, "Bill & Ted's Excellent Adventure")
+    self.tree.insert(86, "Charlie's Angels")
+    self.tree.insert(38, "Charlie's Country")
+    self.tree.insert(69, "Collateral Damage")
+    self.tree.insert(35, "Snowpiercer")
+
+    self.assertEqual(self.tree.height(), 4)
 
