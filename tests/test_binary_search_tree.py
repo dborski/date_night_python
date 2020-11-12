@@ -135,7 +135,7 @@ class BinarySearchTreeTest(unittest.TestCase):
   def test_leaves(self):
     self.tree.insert(61, "Bill & Ted's Excellent Adventure")
     self.tree.insert(16, "Johnny English")
-    self.tree.insert(92, "Sharknado 3"), 1
+    self.tree.insert(92, "Sharknado 3")
     self.tree.insert(50, "Hannibal Buress: Animal Furnace")
     self.tree.insert(98, "Animals United")
     self.tree.insert(58, "Armageddon")
