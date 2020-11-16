@@ -93,8 +93,8 @@ class BinarySearchTree:
     recur(self.head)
 
     for score, value in node_counts.items():
-      percentage = math.floor((float(value) / float(total_nodes)) * 100)
-      payload.append([score, node_counts[score], percentage])
+      percentage = math.floor((float(value) / float(total_nodes)) * 100.)
+      payload.append([score, value, percentage])
 
     return payload
 
