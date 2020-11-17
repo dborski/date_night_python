@@ -61,8 +61,7 @@ class BinarySearchTree:
 
     for movie in split_movies:
       score, title = movie.split(", ", 1)
-      insert_return = self.insert(int(score), title.rstrip())
-      if isinstance(insert_return, int):
+      if isinstance(self.insert(int(score), title.rstrip()), int):
         counter += 1
 
     movies.close()
