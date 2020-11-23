@@ -55,17 +55,16 @@ class BinarySearchTree:
     return leaf_nodes, max_height
   
   def load(self, text_file):
-    movies = open(text_file, 'r')
-    split_movies = movies.readlines()
-    counter = 0
+    with open(text_file, 'r') as movies:
+      split_movies = movies.readlines()
+      counter = 0
 
-    for movie in split_movies:
-      score, title = movie.split(", ", 1)
-      if isinstance(self.insert(int(score), title.rstrip()), int):
-        counter += 1
+      for movie in split_movies:
+        score, title = movie.split(", ", 1)
+        if isinstance(self.insert(int(score), title.rstrip()), int):
+          counter += 1
 
-    movies.close()
-    return counter
+      return counter
   
   def health(self, depth):
     total_nodes = 0
