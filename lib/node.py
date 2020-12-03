@@ -7,9 +7,9 @@ class Node:
     self.depth = 0
 
   def insert(self, movie_score, movie_title):
-    if self.movie_score > movie_score:
+    if movie_score < self.movie_score:
       return self.insert_left(movie_score, movie_title)
-    elif self.movie_score < movie_score:
+    elif movie_score > self.movie_score:
       return self.insert_right(movie_score, movie_title)
     else:
       return "That movie score has already been used. Please submit another one"
